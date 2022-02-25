@@ -34,7 +34,7 @@ const displayCountries = async (countries) => {
       //  console.log(language);
         div.innerHTML = `
         <div class="card">
-        <img src="${country.flags.png}" class="card-img-top" alt="...">
+        <img  src="${country.flags.png}" class="card-img-top height" alt="...">
         <div class="card-body">
           <h5 class="card-title">Name: ${country.name.common}</h5>
           <p class="card-text">Language: ${language[0]}</p>
@@ -81,7 +81,7 @@ const searchByName = async (name)=>{
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <img src="${url[0].flags.png}" class="card-img-top" alt="...">
+                <img  src="${url[0].flags.png}" class="card-img-top" alt="...">
                 <h5 class="modal-title" id="exampleModalLabel">population: ${url[0].population}</h5>
                 <h5 class="modal-title" id="exampleModalLabel">continents: ${url[0].continents}</h5>
                 <h5 class="modal-title" id="exampleModalLabel">currencies: ${url[0].currencies[currency].name}  Symbol : ${url[0].currencies[currency].symbol} </h5>
