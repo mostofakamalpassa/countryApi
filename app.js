@@ -62,7 +62,7 @@ const searchByName = async (name)=>{
     
     const urlByName = await fetch(`https://restcountries.com/v3.1/name/${name}`);
     const url =  await urlByName.json();
-    console.log(url)
+    //console.log(url)
 
     const showSingleCountryInformation = document.getElementById('exampleModal');
     showSingleCountryInformation.innerText = '';
@@ -100,3 +100,51 @@ const searchByName = async (name)=>{
 
     showSingleCountryInformation.appendChild(div);
 }
+
+/******=========== Search Country By name =============****** */
+
+document.getElementById('search').addEventListener('click', async function(e){
+   
+    const singelCountry = document.getElementById('input-value');
+   // console.log(singelCountry)
+    const urlByName = await fetch(`https://restcountries.com/v3.1/name/${singelCountry.value}`);
+    const url =  await urlByName.json();
+
+   console.log(url)
+
+    const showAllCountries = document.getElementById('countryAreaShow');
+    //console.log(countries);
+    showAllCountries.innerText = '';
+       
+            const div = document.createElement('div');
+            div.classList.add('col');
+    
+            const language = Object.values(url[0].languages);
+          //  console.log(language);
+            div.innerHTML = `
+            <div class="card">
+            <img  src="${url[0].flags.png}" class="card-img-top height" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Name: ${url[0].name.common}</h5>
+              <p class="card-text">Language: ${language[0]}</p>
+                         <!-- Button trigger modal -->
+                    <button onclick='searchByName("${url[0].name.common}")' type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Details
+                    </button>
+            </div>
+          </div>
+    
+            `;
+            
+            //console.log(country.name.common);
+           // console.log(country.flags.png)
+          // console.log(country.capital)
+    
+          showAllCountries.appendChild(div);
+     
+
+
+
+
+
+});
